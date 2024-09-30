@@ -13,7 +13,7 @@ Data yang digunakan berasal dari tiga sumber:
 Proyek ini dibuat untuk tujuan pembelajaran tentang data engineering dan web scraping. Data yang diperoleh dari website hanya digunakan untuk analisis pribadi dan tidak untuk tujuan komersial.
 
 ## Problem 
-Tim Data Analis membutuhkan data dari berbagai sumber untuk analisis penjualan dan marketing. Proyek ini bertujuan untuk mengumpulkan, memvalidasi, mentransformasi, dan memuat data tersebut ke dalam satu database PostgreSQL yang siap untuk analisis lebih lanjut. dan tim Data Scienties membutuhkan data dari web untuk membuat NLP
+Tim Data Analis membutuhkan data dari berbagai sumber untuk analisis penjualan dan marketing. Proyek ini bertujuan untuk mengumpulkan, memvalidasi, mentransformasi, dan memuat data tersebut ke dalam satu database PostgreSQL yang siap untuk analisis lebih lanjut. Selain itu, tim Data Scientist memerlukan data dari web untuk digunakan dalam proyek Natural Language Processing (NLP), yang akan membantu mereka menganalisis teks ulasan dari web.
 
 ## Solution
 Untuk menyelesaikan masalah ini, kita akan membuat pipeline ETL yang akan mengumpulkan data dari berbagai sumber seperti database PostgreSQL, file CSV, dan web scraping, lalu memvalidasi dan membersihkan data sebelum akhirnya memuatnya ke dalam database PostgreSQL untuk keperluan analisis penjualan, marketing, dan proyek Natural Language Processing (NLP).
