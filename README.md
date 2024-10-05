@@ -38,7 +38,7 @@ Untuk menyelesaikan masalah ini, kita akan membuat pipeline ETL yang akan mengum
   - Penggabungan data dari berbagai sumber (amazon, marketing, dan scraping).
   - Transformasi kolom tertentu (misalnya, mengisi missing value, mengubah tipe data, dll).
 
-- **Load to Data WAarehouse**:
+- **Load to Data Warehouse**:
   - Semua data yang telah dibersihkan dan ditransformasi dimuat ke dalam tabel di database PostgreSQL untuk analisis lebih lanjut.
 
 ## Stack & Tools
