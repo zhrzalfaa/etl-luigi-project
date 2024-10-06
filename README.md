@@ -97,7 +97,8 @@ Untuk menyelesaikan masalah ini, kita akan membuat pipeline ETL yang akan mengum
    pip install luigi
    ```
    ```python
-   import luigi```
+   import luigi
+   ```
 
 9. ## Menjalankan Pipeline
    **Membuat script `run_etl.sh` yang berisi perintah untuk menjalankan pipeline.**
