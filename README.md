@@ -91,8 +91,15 @@ Untuk menyelesaikan masalah ini, kita akan membuat pipeline ETL yang akan mengum
 
 5. ## Membuat ETL Pipeline
    **Membuat script pipeline dengan nama file `etl_pipeline.py` yang berisi proses etl pipeline.**
+   
+7. ## Menginstall luigi
+   ```bash
+   pip install luigi
+   ```
+   ```python
+   import luigi```
 
-6. ## Menjalankan Pipeline
+9. ## Menjalankan Pipeline
    **Membuat script `run_etl.sh` yang berisi perintah untuk menjalankan pipeline.**
    **Setelah membuat script pipeline, pastikan script memiliki permission yang benar dengan menjalankan perintah:**
      ```bash
@@ -102,7 +109,7 @@ Untuk menyelesaikan masalah ini, kita akan membuat pipeline ETL yang akan mengum
      ```bash
      ./run_etl.sh
      ```
-7. ## Melakukan scheduling menggunakan`cron`
+10. ## Melakukan scheduling menggunakan`cron`
 
    **Membuka crontab**
    ```bash
