@@ -36,7 +36,7 @@ Untuk menyelesaikan masalah ini, kita akan membuat pipeline ETL yang akan mengum
 
 - **Data Transformation**:
   - Penggabungan data dari berbagai sumber (amazon, marketing, dan scraping).
-  - Transformasi kolom tertentu (misalnya, mengisi missing value, mengubah tipe data, dll).
+  - Transformasi kolom dengan mengisi missing value, mengubah tipe data, dll.
 
 - **Load to Data Warehouse**:
   - Semua data yang telah dibersihkan dan ditransformasi dimuat ke dalam tabel di database PostgreSQL untuk analisis lebih lanjut.
@@ -61,8 +61,8 @@ Untuk menyelesaikan masalah ini, kita akan membuat pipeline ETL yang akan mengum
 
 ## Langkah-Langkah Membuat Pipeline ETL
 
-1. **Membuat File `.env`**
-   - File `.env` digunakan untuk menyimpan variabel lingkungan yang diperlukan oleh aplikasi, seperti kredensial database, agar informasi sensitif tetap aman dan tidak terekspos di repository publik.
+1. ### Membuat File `.env`
+   **File `.env` digunakan untuk menyimpan variabel lingkungan yang diperlukan oleh aplikasi, seperti kredensial database, agar informasi sensitif tetap aman dan tidak terekspos di repository publik.**
    - Contoh isi file `.env`:
      ```plaintext
      DB_USERNAME="user"
@@ -71,26 +71,53 @@ Untuk menyelesaikan masalah ini, kita akan membuat pipeline ETL yang akan mengum
      DB_PORT="543"
      DB_NAME="your_database_name"
      ```
+2. ### Inisialisasi dotenv
+  ```bash
+  pip install python-dotenv
+  ```
+  ```python
+  from dotenv import load_dotenv
 
-2. **Menjalankan Docker Compose**
-   - Menjalankan **Docker Compose** untuk menjalankan database PostgreSQL di container Docker.
-   - Untuk memulai container, jalankan perintah berikut di terminal:
+  load_dotenv()
+  ```
+3. ## Menjalankan Docker Compose
+   **Menjalankan **Docker Compose** untuk menjalankan database PostgreSQL di container Docker.**
+   **Untuk memulai container, jalankan perintah berikut di terminal:**
      ```bash
      docker-compose up -d
      ```
-3. **Membuat init.sql**
-   - Buat file bernama init.sql yang berisi perintah SQL untuk menginisialisasi database, untuk pembuatan tabel ketika proses load.
+4. ## Membuat init.sql
+   Buat file bernama init.sql yang berisi perintah SQL untuk menginisialisasi database, untuk pembuatan tabel ketika proses load.
 
-3. **Membuat ETL Pipeline**
-   - Membuat script python dengan nama file `etl_pipeline.py` yang berisi proses etl pipeline.
+5. ## Membuat ETL Pipeline
+   **Membuat script pipeline dengan nama file `etl_pipeline.py` yang berisi proses etl pipeline.**
 
-4. **Menjalankan Pipeline**
-   - Membuat script `run_etl.sh` yang berisi perintah untuk menjalankan pipeline.
-   - Setelah membuat script ini, pastikan script memiliki permission yang benar dengan menjalankan perintah:
+6. ## Menjalankan Pipeline
+   **Membuat script `run_etl.sh` yang berisi perintah untuk menjalankan pipeline.**
+   **Setelah membuat script pipeline, pastikan script memiliki permission yang benar dengan menjalankan perintah:**
      ```bash
      chmod 755 run_etl.sh
      ```
-   - Kemudian menjalankan:
+   **Kemudian menjalankan:**
      ```bash
      ./run_etl.sh
      ```
+7. ## Melakukan scheduling menggunakan`cron`
+
+   **Membuka crontab**
+   ```bash
+     crontab -e
+     ```
+   **Tambahkan schedule untuk menjalankan pipeline**
+   - Contoh menjalankan run_etl.sh setiap hari pada pukul 2 pagi:
+    ```bash
+   0 2 * * * /Users/user/data-eng/run_etl.sh >> /Users/user/data-eng/log/cron_log.log 2>&1
+    ```
+   **Verifikasi crontab untuk memastikan schedule telah dilakukan**
+   ```bash
+     crontab -l
+   ```
+
+   Until next time!
+
+
